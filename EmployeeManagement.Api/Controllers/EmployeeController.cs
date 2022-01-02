@@ -8,10 +8,10 @@ namespace EmployeeManagement.Api.Controllers
     // If mvc controller --> Controller
     [Route("api/[controller]")]
     [ApiController]
-    public class EmployeeController : ControllerBase
+    public class EmployeesController : ControllerBase
     {
         private readonly IEmployeeRepository employeeRepository;
-        public EmployeeController(IEmployeeRepository employeeRepository)
+        public EmployeesController(IEmployeeRepository employeeRepository)
         {
             this.employeeRepository = employeeRepository;
         }
