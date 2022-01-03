@@ -2,30 +2,34 @@
 @page "/employeedetails"
 @inherits EmployeeDetailsBase
 
-@if(Employee == null || Employee.Department == null)
+@if (Employee == null || Employee.Department == null)
 {
 	<div class="spinner"></div>
 }
 else
 {
 	<div class="row justify-content-center m-3">
-		<div class="col-sm-8">
-			<div class="card">
-				<div class="card-header">
-					<h1>@Employee.FirstName @Employee.LastName</h1>
-				</div>
-				<div class="card-body text-center">
-					<img src="@Employee.PhotoPath" alt="employee photo" class="card-img-top">
-					<h4>Employee ID: @Employee.EmployeeId</h4>
-					<h4>Email: @Employee.Email</h4>
-					<h4>Department: @Employee.Department.DepartmentName</h4>
-				</div>
-				<div class="card-footer text-center">
-					<a href="/" class="btn btn-primary">Back</a>
-					<a href="#" class="btn btn-primary">Edit</a>
-					<a href="#" class="btn btn-danger">Delete</a>
-				</div>
+	<div class="col-sm-8">
+		<div class="card">
+			<div class="card-header">
+				<h1>@Employee.FirstName @Employee.LastName</h1>
+			</div>
+			<div class="card-body text-center">
+				@* The event handler can also be a lambda expression
+					@onmousemove="@(e => Coordinates = $"X = {e.ClientX} Y = {e.ClientY}")" *@
+				<img src="@Employee.PhotoPath" alt="employee photo" class="card-img-top" @onmousemove="@Mouse_Move">
+				<h1>@Coordinates</h1>
+				<h4>Employee ID: @Employee.EmployeeId</h4>
+				<h4>Email: @Employee.Email</h4>
+				<h4>Department: @Employee.Department.DepartmentName</h4>
+			</div>
+			<button class="btn btn-primary" @onclick="@Button_Click">@ButtonText</button>
+			<div class="card-footer text-center @CssClass">
+				<a href="/" class="btn btn-primary">Back</a>
+				<a href="#" class="btn btn-primary">Edit</a>
+				<a href="#" class="btn btn-danger">Delete</a>
 			</div>
 		</div>
 	</div>
+</div>
 }
