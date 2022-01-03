@@ -22,6 +22,9 @@ else
 				<h4>Employee ID: @Employee.EmployeeId</h4>
 				<h4>Email: @Employee.Email</h4>
 				<h4>Department: @Employee.Department.DepartmentName</h4>
+				<h4>Reports to: @Name</h4>
+				@* <input type="text" value="@Name" @onchange="@(e => { Name = e.Value.ToString();})"> *@
+				<input type="text" @bind="Name" />
 			</div>
 			<button class="btn btn-primary" @onclick="@Button_Click">@ButtonText</button>
 			<div class="card-footer text-center @CssClass">

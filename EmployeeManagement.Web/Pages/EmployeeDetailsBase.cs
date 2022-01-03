@@ -42,5 +42,7 @@ namespace EmployeeManagement.Web.Pages
                 ButtonText = "Hide Footer";
             }
         }
+
+        protected string Name { get; set; } = "QQ";
     }
 }
